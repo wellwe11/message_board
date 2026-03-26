@@ -8,10 +8,10 @@
   <body>
 
     <%- include("./components/nav") %>
-    
+
     <ul>
-        <% messages.forEach((message) => { %>
-            <%- include("./components/message", { message }) %>
+        <% messages.forEach((message, index) => { %>
+            <%- include("./components/message", { message, index }) %>
         <% }); %>
     </ul>
   </body>

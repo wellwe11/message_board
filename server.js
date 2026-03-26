@@ -26,7 +26,7 @@ app.use(express.urlencoded({ extended: true }));
 // Roots
 app.use("/", indexRouter);
 app.use("/new", newRouter);
-app.use("/message", messageRoute);
+app.use("/message/", messageRoute);
 
 // Listener
 app.listen(PORT, (err) => {
