@@ -7,7 +7,14 @@
   </head>
   <body>
     <h1>Message page</h1>
+
     <%- include("./components/nav") %>
-    <h1><%= id %></h1>
+
+    <h4>This is the whole message:</h4>
+    <p>Text: <%- message.text %></p>
+
+    <p>By user: <%- message.user %></p>
+
+    <p>Date: <%- message.added %></p>
   </body>
 </html>
