@@ -19,6 +19,9 @@ app.set("views", path.join(__dirname, "views"));
 // Define EJS engine
 app.set("view engine", "ejs");
 
+// decode forms inputs
+app.use(express.urlencoded({ extended: true }));
+
 // Roots
 app.use("/", indexRouter);
 app.use("/new", newRouter);
