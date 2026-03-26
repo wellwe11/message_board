@@ -6,8 +6,9 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>This is "/"</h1>
 
+    <%- include("./components/nav") %>
+    
     <ul>
         <% messages.forEach((message) => { %>
             <%- include("./components/message", { message }) %>

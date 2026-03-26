@@ -2,7 +2,7 @@ import { Router } from "express";
 
 const indexRouter = Router();
 
-const messages = [
+export const messages = [
   {
     text: "Hi there!",
     user: "Amando",
