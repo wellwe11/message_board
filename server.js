@@ -1,10 +1,11 @@
 import express from "express";
+import { fileURLToPath } from "node:url";
+import path, { dirname } from "node:path";
+
 import indexRouter from "./Routes/index.js";
 import newRouter from "./Routes/new.js";
-import path, { dirname } from "node:path";
-import { fileURLToPath } from "node:url";
+import messageRoute from "./Routes/message.js";
 
-// Set up a views dirname & engine
 // Set up a dirname for the css file
 
 // Define __filename because I am using modules, instead of commonjs
@@ -25,6 +26,7 @@ app.use(express.urlencoded({ extended: true }));
 // Roots
 app.use("/", indexRouter);
 app.use("/new", newRouter);
+app.use("/message", messageRoute);
 
 // Listener
 app.listen(PORT, (err) => {
