@@ -1,13 +1,8 @@
 import { Router } from "express";
-import { messages } from "./index.js";
+import { uniqueImageGet } from "../Controllers/uniqueMessageGet.js";
 
 const messageRoute = Router();
 
-messageRoute.get("/:id", (req, res) =>
-  res.render("message", {
-    id: req.params.id,
-    message: messages[req.params.id],
-  }),
-);
+messageRoute.get("/:id", uniqueImageGet);
 
 export default messageRoute;

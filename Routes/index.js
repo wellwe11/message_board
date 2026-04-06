@@ -1,20 +1,8 @@
 import { Router } from "express";
+import { messagesGet } from "../Controllers/messagesGet.js";
 
 const indexRouter = Router();
 
-export const messages = [
-  {
-    text: "Hi there!",
-    user: "Amando",
-    added: new Date(),
-  },
-  {
-    text: "Hello World!",
-    user: "Charles",
-    added: new Date(),
-  },
-];
-
-indexRouter.get("/", (req, res) => res.render("index", { messages }));
+indexRouter.get("/", messagesGet);
 
 export default indexRouter;

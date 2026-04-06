@@ -6,11 +6,13 @@ import indexRouter from "./Routes/index.js";
 import newRouter from "./Routes/new.js";
 import messageRoute from "./Routes/message.js";
 
-import { neon } from "@neondatabase/serverless";
+// import { neon } from "@neondatabase/serverless";
+
+import { messagesGet } from "./Controllers/messagesGet.js";
 import "dotenv/config";
 
 // Database
-const sql = neon(process.env.DATABASE_URL);
+// const sql = neon(process.env.DATABASE_URL);
 
 // Set up a dirname for the css file
 
@@ -29,15 +31,8 @@ app.set("view engine", "ejs");
 // decode forms inputs
 app.use(express.urlencoded({ extended: true }));
 
-const requestHandler = async (req, res) => {
-  const result = await sql`SELECT version()`;
-  const { version } = result[0];
-  res.writeHead(200, { "Content-Type": "text/plain" });
-  res.end(version);
-};
-
 // neon-test server
-app.get("/db-test", requestHandler);
+app.get("/db-test", messagesGet);
 
 // Roots
 app.use("/", indexRouter);
@@ -50,3 +45,5 @@ app.listen(PORT, (err) => {
   }
   console.log("App running at port: ", PORT);
 });
+
+// Fix the edit page now which has delete function using SQL

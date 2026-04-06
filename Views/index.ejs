@@ -9,10 +9,13 @@
 
     <%- include("./components/nav") %>
 
+    <% if (messages && messages.length > 0) { %>
     <ul>
-        <% messages.forEach((message, index) => { %>
-            <%- include("./components/message", { message, index }) %>
+        <% messages.forEach((message) => { %>
+            <%- include("./components/message", { message }) %>
         <% }); %>
     </ul>
+
+    <% } %>
   </body>
 </html>
